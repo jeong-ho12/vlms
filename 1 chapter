@@ -1,0 +1,65 @@
+import numpy as np
+
+
+##np.concatenate##(하나의 벡터 내부에 원소 or 벡터 추가하기)
+
+
+##np.random.randint(n,m)## (n부터 m사이에 있는 정수를 랜덤으로 생성)
+
+# import matplotlib.pyplot as plt
+
+# temps=[np.random.randint(60,80) for i in range(40)]
+# plt.plot(temps)
+# plt.show()
+
+
+##vector add,multiple,divide##
+print(np.array([1,2,3])-1)
+
+print(np.array([1,2,3])*2)
+
+
+##linear combination##(linear combination 함수)
+
+coef = [-0.5,1.5]
+vecs = np.array([
+    [1,2],
+    [3,4]
+])
+
+def lincomb(coeff,vectors):
+    n = len(vectors[0])
+    a=np.zeros(n)
+    for i in range(vectors):
+        a += vectors[i] * coeff[i]
+    return a
+
+##linear combination##(식으로 표현)
+a,b,beta=np.random.rand(3),np.random.rand(3),np.random.rand()
+lhs=beta*(a+b)
+print(lhs)
+
+##inner product##
+x=np.array([1,2,3])
+y=np.array([1,2,3])
+print(np.inner(x,y))
+
+
+##npv 계산##(npv 공식 사용)
+
+c=np.array([0.1,0.1,0.1,1,1])
+n=len(c)
+r=0.05
+npv=np.inner(np.array([(1+r)**-(i) for i in range(n)]),c)
+
+##Total School-Age Population##
+s= np. concatenate((np.zeros(5),np.ones(14),np.zeros(81)))
+ages=np.array([np.random.randint(5,19) for i in range(100)])
+
+print(np.inner(s,ages))
+
+##Sparsevec##
+sparsevec=np.zeros(10**6)
+sparsevec[12345]=1
+print(np.nonzero(sparsevec))
+print(len(np.nonzero(sparsevec)))
